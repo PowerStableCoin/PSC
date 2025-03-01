@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DAOPowerStableCoin (PSC)</title>
+  <meta name="description" content="A DAO-Governed Algorithmic Stable Coin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Basic styles: you can replace with your own CSS or frameworks like Bootstrap -->
+  <style>
+    body {
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0;
+      background: #f9f9f9;
+    }
+    header {
+      background: #4F46E5; /* Purple highlight */
+      color: white;
+      padding: 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #DADADA;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    section {
+      margin: 2rem 0;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+    h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center; 
+      background: #4F46E5; 
+      color: #fff; 
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .stats-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .stat {
+      background: #fafafa;
+      flex: 1 1 180px;
+      text-align: center;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 1rem;
+    }
+    .btn {
+      background: #6366F1;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #4F46E5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>DAOPowerStableCoin (PSC)</h1>
+    <nav>
+      <a href="#docs">Docs</a>
+      <a href="#governance">Governance</a>
+      <a href="#assets">Assets</a>
+      <a href="#mint-redeem">Mint/Redeem</a>
+      <a href="#community">Community</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HOME SECTION -->
+  <section id="home">
+    <h2>Welcome to PSC</h2>
+    <p>DAOPowerStableCoin (PSC) is a decentralized, algorithmic stable coin 
+       governed by a DAO. Using a burn-to-mint mechanism and robust oracles, 
+       PSC remains stable while adapting to market conditions.</p>
+    <div class="stats-box">
+      <div class="stat">
+        <h3>Collateral Ratio</h3>
+        <p>80% <small>(Example)</small></p>
+      </div>
+      <div class="stat">
+        <h3>Reserves (USD)</h3>
+        <p>$1,000,000 <small>(Example)</small></p>
+      </div>
+      <div class="stat">
+        <h3>PSC Market Cap</h3>
+        <p>$2,500,000 <small>(Example)</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCS SECTION -->
+  <section id="docs">
+    <h2>Documentation</h2>
+    <p>
+      Find our Whitepaper 
+      <a href="DAOPowerStableCoin_Whitepaper.pdf" target="_blank">here</a> (link to your compiled PDF),
+      or read the summary below:
+    </p>
+    <ul>
+      <li><strong>Core Mechanism:</strong> Burn an approved asset, mint PSC based on oracles + collateral ratio.</li>
+      <li><strong>Oracle Aggregation:</strong> Multiple feeds with a deviation check for reliability.</li>
+      <li><strong>Upgradeable:</strong> UUPS pattern with time-locked governance proposals.</li>
+      <li><strong>DAO Governed:</strong> Collateral ratio, paused state, new assets, and more managed by a DAO or Owner.</li>
+    </ul>
+    <a class="btn" href="DAOPowerStableCoin_Whitepaper.pdf" target="_blank">Read Full Whitepaper</a>
+  </section>
+
+  <!-- GOVERNANCE SECTION -->
+  <section id="governance">
+    <h2>Governance</h2>
+    <p>Our DAO or combined Owner-DAO structure controls upgrades, parameter changes, 
+       asset approvals, etc. Proposals are subject to a delay (<em>upgradeDelay</em>) 
+       to allow community review.</p>
+    <p>
+      If you hold governance tokens (or the designated role), you can propose changes 
+      on the <a href="https://snapshot.org" target="_blank">Snapshot page</a> 
+      (or an on-chain voting system).
+    </p>
+  </section>
+
+  <!-- ASSETS SECTION -->
+  <section id="assets">
+    <h2>Approved Assets</h2>
+    <p>Below is an example list of approved stable coin collaterals:</p>
+    <ul>
+      <li>USDT - 6 decimals</li>
+      <li>USDC - 6 decimals</li>
+      <li>DAI - 18 decimals</li>
+    </ul>
+    <p>To add new assets, a proposal must pass, and the DAO (or Owner) calls <code>setAsset</code>.</p>
+  </section>
+
+  <!-- MINT & REDEEM SECTION -->
+  <section id="mint-redeem">
+    <h2>Mint / Redeem PSC</h2>
+    <p>
+      <strong>Mint:</strong> 
+      Deposit an approved token (e.g., USDT), which is burned. PSC is minted 
+      using the aggregated price feed. 
+    </p>
+    <p>
+      <strong>Redeem:</strong> 
+      If reserves are sufficient, PSC holders can convert stable coins back 
+      into underlying assets.
+    </p>
+    <p>A DApp UI can be integrated here so users can connect their wallets 
+       and execute these functions directly.</p>
+  </section>
+
+  <!-- COMMUNITY SECTION -->
+  <section id="community">
+    <h2>Community & Security</h2>
+    <ul>
+      <li><strong>Bug Bounty:</strong> We encourage security researchers to 
+        report vulnerabilities. Join our <a href="#" target="_blank">Bug Bounty Page</a>.</li>
+      <li><strong>Audits:</strong> Ongoing or completed? Link or details 
+        on <a href="#" target="_blank">audit PDF/report</a>.</li>
+      <li><strong>Social Links:</strong>
+        <ul>
+          <li>Discord: <a href="#" target="_blank">discord.gg/YourProject</a></li>
+          <li>Twitter: <a href="#" target="_blank">@YourProject</a></li>
+          <li>GitHub: <a href="#" target="_blank">github.com/YourOrg</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <p>DAOPowerStableCoin &copy; 2023. All rights reserved.</p>
+  <p style="font-size: 0.9rem;">
+    Deployed at <strong>0x69EfcbfCdF2f02e79De4daD5906055761Df9d691</strong>
+    <br>
+    <em>Use at your own risk. No financial advice.</em>
+  </p>
+</footer>
+
+</body>
+</html>
