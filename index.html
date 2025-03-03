@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DAOPowerStableCoin</title>
+  <title>DAOPowerStableCoin (PSC) - The Future of Stable Finance</title>
   <style>
     /* Reset & Basic Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Arial', sans-serif; background: #f7f9fc; text-align: center; color: #333; }
-
+    
     /* Navigation */
     nav {
       position: fixed;
@@ -74,12 +74,35 @@
     h2 { font-size: 2.5em; color: #2C3E50; margin-bottom: 20px; }
     p { margin-bottom: 15px; font-size: 1.1em; color: #555; }
 
+    /* Benefits Section */
+    .benefits {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .benefit-box {
+      width: 30%;
+      padding: 20px;
+      background: #ecf0f1;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
     /* Illustration Section */
     #illustration {
       text-align: center;
       margin-top: 40px;
     }
     #illustration canvas { border: 2px solid #ecf0f1; background: #fff; }
+
+    /* Roadmap */
+    .roadmap ol {
+      text-align: left;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.2em;
+    }
 
     /* Footer */
     footer {
@@ -101,8 +124,8 @@
       <div class="logo">DAOPowerStableCoin</div>
       <div class="menu">
         <a href="#about">About</a>
-        <a href="#methods">How It Works</a>
-        <a href="#illustration">Illustration</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#illustration">How It Works</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#cta">Join Us</a>
         <a href="#contact">Contact</a>
@@ -114,25 +137,59 @@
   <header id="home">
     <div class="overlay"></div>
     <div class="content">
-      <h1>Empower Your Future</h1>
-      <p>Invest in a Decentralized Stablecoin that Rewards You</p>
+      <h1>The Future of Stable Finance</h1>
+      <p>Invest in a decentralized stablecoin backed by real assets</p>
       <button class="cta-btn" onclick="scrollToSection('cta')">Get Started</button>
     </div>
   </header>
 
-  <!-- How It Works Section -->
-  <section id="methods">
+  <!-- About Section -->
+  <section id="about">
     <div class="container">
-      <h2>How It Works</h2>
-      <p>Visualizing the Flow: Collateral Deposit → Minting PSC → Staking → Rewards</p>
+      <h2>What is DAOPowerStableCoin?</h2>
+      <p>DAOPowerStableCoin (PSC) is a decentralized stablecoin that maintains stability through collateral backing and a decentralized governance model. Users can stake, earn rewards, and make payments while ensuring full transparency and security.</p>
     </div>
   </section>
 
-  <!-- Dynamic Illustration Section -->
+  <!-- Benefits Section -->
+  <section id="benefits">
+    <div class="container">
+      <h2>Why Choose PSC?</h2>
+      <div class="benefits">
+        <div class="benefit-box">
+          <h3>🔒 Secure & Transparent</h3>
+          <p>PSC is fully backed and auditable, ensuring maximum security.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>💰 Earn Passive Income</h3>
+          <p>Stake PSC and earn rewards for holding and participating.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>📈 Growth & Stability</h3>
+          <p>Designed to maintain value with collateralized backing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Illustration Section -->
   <section id="illustration">
     <div class="container">
-      <h2>Our Dynamic Process</h2>
+      <h2>How PSC Works</h2>
       <canvas id="illustrationCanvas" width="800" height="400"></canvas>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section id="roadmap">
+    <div class="container">
+      <h2>Roadmap</h2>
+      <ol>
+        <li><strong>Q1 2025:</strong> Core Development & Smart Contract Audits</li>
+        <li><strong>Q2 2025:</strong> DAO Governance Launch</li>
+        <li><strong>Q3 2025:</strong> Merchant Adoption & Real-World Use Cases</li>
+        <li><strong>Q4 2025:</strong> Cross-Chain Expansion</li>
+      </ol>
     </div>
   </section>
 
@@ -141,50 +198,13 @@
     <p>© DAOPowerStableCoin 2025. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript for Illustration -->
   <script>
-    const canvas = document.getElementById("illustrationCanvas");
-    const ctx = canvas.getContext("2d");
-    let startTime = null;
-    const duration = 4000;
-
-    function drawIllustration(timestamp) {
-      if (!startTime) startTime = timestamp;
-      let progress = (timestamp - startTime) / duration;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#3498db"; ctx.fillRect(50, 150, 150, 80);
-      ctx.fillStyle = "#fff"; ctx.fillText("💰 Collateral", 70, 185);
-
-      let arrow1X = 220 + Math.min(progress * 250, 250);
-      ctx.strokeStyle = "#e74c3c"; ctx.lineWidth = 4;
-      ctx.beginPath(); ctx.moveTo(200, 190); ctx.lineTo(arrow1X, 190); ctx.stroke();
-
-      if (progress > 0.25) {
-        ctx.fillStyle = "#2ecc71"; ctx.fillRect(arrow1X + 20, 150, 150, 80);
-        ctx.fillStyle = "#fff"; ctx.fillText("🪙 PSC Minted", arrow1X + 40, 185);
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-
-      if (progress > 0.5) {
-        let arrow2X = 440 + Math.min((progress - 0.5) * 250, 250);
-        ctx.strokeStyle = "#f1c40f"; ctx.beginPath(); ctx.moveTo(420, 190); ctx.lineTo(arrow2X, 190); ctx.stroke();
-      }
-
-      if (progress > 0.75) {
-        ctx.fillStyle = "#8e44ad"; ctx.fillRect(690, 150, 150, 80);
-        ctx.fillStyle = "#fff"; ctx.fillText("🔒 Staking", 730, 185);
-      }
-
-      if (progress > 0.85) {
-        ctx.strokeStyle = "#27ae60"; ctx.beginPath(); ctx.moveTo(770, 230); ctx.lineTo(770, 300); ctx.stroke();
-        ctx.fillStyle = "#f39c12"; ctx.fillRect(690, 300, 150, 80);
-        ctx.fillStyle = "#fff"; ctx.fillText("🎁 Rewards", 730, 340);
-      }
-
-      if (progress >= 1) { startTime = timestamp; }
-      requestAnimationFrame(drawIllustration);
     }
-    requestAnimationFrame(drawIllustration);
   </script>
 
 </body>
