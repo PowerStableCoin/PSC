@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DAOPowerStableCoin</title>
   <style>
-    /* Basic Reset */
+    /* Reset & Basic Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f4f4f4;
-    }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f7f9fc; color: #333; }
+    a { text-decoration: none; color: inherit; }
     
     /* Navigation */
     nav {
-      background: #2C3E50;
-      color: #fff;
-      padding: 1em;
       position: fixed;
-      width: 100%;
       top: 0;
+      width: 100%;
+      background: rgba(44, 62, 80, 0.95);
+      padding: 15px 0;
       z-index: 1000;
     }
-    
     nav .container {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
     }
-    
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 15px;
-    }
+    nav .logo { font-size: 1.8em; color: #fff; font-weight: bold; }
+    nav .menu a { margin-left: 20px; font-size: 1em; color: #ecf0f1; }
     
     /* Hero Section */
     header {
-      background: url('https://via.placeholder.com/1100x500') no-repeat center center/cover;
-      height: 500px;
+      height: 600px;
       position: relative;
-      margin-top: 60px;
+      background: url('https://via.placeholder.com/1100x600/2c3e50/ffffff?text=Empower+Your+Future') no-repeat center center/cover;
     }
-    
     header .overlay {
-      background: rgba(0, 0, 0, 0.5);
-      height: 100%;
-      width: 100%;
       position: absolute;
       top: 0;
       left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
     }
-    
     header .content {
       position: relative;
       z-index: 2;
@@ -64,56 +51,81 @@
       color: #fff;
       top: 50%;
       transform: translateY(-50%);
+      padding: 0 20px;
     }
-    
-    header .content h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-    
-    header .content p {
+    header .content h1 { font-size: 3.5em; margin-bottom: 20px; }
+    header .content p { font-size: 1.5em; margin-bottom: 30px; }
+    header .content .cta-btn {
+      background: #e74c3c;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
       font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    header .content .cta-btn:hover {
+      background: #c0392b;
     }
     
     /* Sections */
     section {
-      padding: 60px 0;
+      padding: 80px 0;
       background: #fff;
     }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    h2 { text-align: center; font-size: 2.5em; color: #2C3E50; margin-bottom: 20px; }
+    h3 { color: #34495e; margin: 20px 0 10px; }
+    p { margin-bottom: 15px; font-size: 1.1em; }
     
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2C3E50;
-    }
-    
-    p {
-      margin-bottom: 15px;
-    }
-    
-    /* Dynamic Illustration */
+    /* Dynamic Illustration Section */
     #illustration {
       text-align: center;
+      margin-top: 40px;
     }
+    #illustration canvas { border: 2px solid #ecf0f1; background: #fff; }
     
-    #illustration canvas {
-      border: 1px solid #ccc;
-      max-width: 100%;
-      height: auto;
+    /* Call to Action Section */
+    #cta {
+      background: linear-gradient(135deg, #2C3E50, #2980b9);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    #cta h2 { font-size: 2.8em; }
+    #cta p { font-size: 1.3em; margin-bottom: 30px; }
+    #cta .cta-btn {
+      background: #e74c3c;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #cta .cta-btn:hover { background: #c0392b; }
+    
+    /* Roadmap Section */
+    #roadmap ol {
+      margin-left: 20px;
+      font-size: 1.1em;
     }
     
     /* Footer */
     footer {
       background: #2C3E50;
-      color: #fff;
+      color: #ecf0f1;
       text-align: center;
-      padding: 20px 0;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header .content h1 { font-size: 2.8em; }
+      header .content p { font-size: 1.2em; }
+      nav .menu a { margin-left: 10px; font-size: 0.9em; }
     }
   </style>
 </head>
@@ -121,127 +133,149 @@
   <!-- Navigation -->
   <nav>
     <div class="container">
-      <div class="logo">
-        <a href="#home"><strong>PSC</strong></a>
-      </div>
+      <div class="logo">DAOPowerStableCoin</div>
       <div class="menu">
         <a href="#about">About</a>
         <a href="#methods">How It Works</a>
         <a href="#illustration">Illustration</a>
         <a href="#roadmap">Roadmap</a>
+        <a href="#cta">Join Us</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
-
+  
   <!-- Hero Section -->
   <header id="home">
     <div class="overlay"></div>
     <div class="content">
-      <h1>DAOPowerStableCoin</h1>
-      <p>Secure. Decentralized. Incentivized.</p>
+      <h1>Empower Your Future</h1>
+      <p>Invest in a Decentralized Stablecoin that Rewards You</p>
+      <button class="cta-btn" onclick="scrollToSection('cta')">Get Started</button>
     </div>
   </header>
-
+  
   <!-- About Section -->
   <section id="about">
     <div class="container">
       <h2>About DAOPowerStableCoin</h2>
       <p>
-        DAOPowerStableCoin (PSC) is a decentralized, collateral-backed stablecoin designed to bring stability and innovative user incentives to the DeFi ecosystem. Every PSC token is fully backed by locked collateral, and the ecosystem includes bonus rewards for payments and staking opportunities.
+        DAOPowerStableCoin (PSC) is a next-generation stablecoin that combines robust collateralization with dynamic rewards for everyday use. Built on decentralized governance, PSC ensures every token is fully backed while rewarding users through bonus cashback and staking yields.
+      </p>
+      <p>
+        Join our revolution where finance meets innovation—experience stability, transparency, and growth like never before.
       </p>
     </div>
   </section>
-
-  <!-- Methods Section -->
+  
+  <!-- How It Works Section -->
   <section id="methods">
     <div class="container">
       <h2>How It Works</h2>
-      <h3>Collateral Management</h3>
+      <h3>Collateral-Backed Minting</h3>
       <p>
-        Users mint PSC by locking approved stablecoin collateral. The contract determines the value using multiple oracle price feeds, calculates a median price, and mints PSC accordingly.
+        Users lock approved stablecoin collateral to mint PSC. The collateral is valued using multiple oracle feeds to ensure fair pricing.
       </p>
-      <h3>Payment & Bonus</h3>
+      <h3>Payment & Bonus Rewards</h3>
       <p>
-        Merchants register to accept PSC. When users make payments, they receive bonus tokens (cashback) drawn from a bonus pool, encouraging widespread adoption.
+        Merchants accept PSC as payment. Users receive bonus rewards (cashback) on their payments, incentivizing everyday transactions.
       </p>
-      <h3>Staking for Rewards</h3>
+      <h3>Staking for Yield</h3>
       <p>
-        PSC holders can stake their tokens to earn additional yield from a dedicated staking reward pool. This reduces the circulating supply and rewards long-term holders.
+        PSC holders can stake their tokens to earn additional yield. This mechanism reduces circulating supply and rewards long-term commitment.
       </p>
       <h3>Decentralized Governance</h3>
       <p>
-        Key parameters are governed by a DAO, ensuring transparency and community participation in the protocol's evolution.
+        The protocol’s parameters are governed by a DAO, ensuring that key decisions are transparent and community-driven.
       </p>
     </div>
   </section>
-
+  
   <!-- Dynamic Illustration Section -->
   <section id="illustration">
     <div class="container">
-      <h2>Dynamic Illustration of Our Methods</h2>
-      <p>Watch the process of collateral locking, token minting, and redemption in action!</p>
+      <h2>Our Dynamic Process</h2>
+      <p>Watch our live illustration of collateral locking, minting, and reward distribution.</p>
       <canvas id="illustrationCanvas" width="800" height="400"></canvas>
     </div>
   </section>
-
+  
   <!-- Roadmap Section -->
   <section id="roadmap">
     <div class="container">
       <h2>Roadmap</h2>
       <ol>
-        <li><strong>Phase 1:</strong> Development, auditing, and beta launch of core features.</li>
+        <li><strong>Phase 1:</strong> Core development, security audits, and beta launch.</li>
         <li><strong>Phase 2:</strong> DAO integration, community governance, and merchant partnerships.</li>
-        <li><strong>Phase 3:</strong> Ecosystem expansion, cross-chain compatibility, and advanced features.</li>
-        <li><strong>Phase 4:</strong> Continuous improvements, strategic partnerships, and marketing campaigns.</li>
+        <li><strong>Phase 3:</strong> Ecosystem expansion and cross-chain compatibility.</li>
+        <li><strong>Phase 4:</strong> Continuous improvements, new features, and strategic growth.</li>
       </ol>
     </div>
   </section>
-
+  
+  <!-- Call to Action Section -->
+  <section id="cta">
+    <div class="container">
+      <h2>Join the Revolution</h2>
+      <p>Become part of a decentralized stablecoin ecosystem that rewards innovation and long-term vision.</p>
+      <button class="cta-btn" onclick="scrollToSection('contact')">Join Now</button>
+    </div>
+  </section>
+  
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <h2>Contact Us</h2>
-      <p>For inquiries or more information, please email <a href="mailto:contact@psctoken.io">contact@psctoken.io</a></p>
+      <p>For further inquiries or to learn more, email us at <a href="mailto:contact@psctoken.io">contact@psctoken.io</a></p>
     </div>
   </section>
-
+  
   <!-- Footer -->
   <footer>
-    <p>© DAOPowerStableCoin 2025. All rights reserved.</p>
+    <div class="container">
+      <p>© DAOPowerStableCoin 2025. All rights reserved.</p>
+    </div>
   </footer>
-
-  <!-- JavaScript for Dynamic Illustration -->
+  
+  <!-- JavaScript for Scrolling and Dynamic Illustration -->
   <script>
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
     // Simple dynamic illustration on canvas:
-    // This example animates a simple flow: Collateral --> Minting --> PSC Token.
     const canvas = document.getElementById('illustrationCanvas');
     const ctx = canvas.getContext('2d');
     let startTime = null;
-    const duration = 5000; // 5 seconds animation cycle
+    const duration = 5000; // 5-second animation cycle
 
     function drawIllustration(timestamp) {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw collateral box on the left
+      // Draw a dynamic flow diagram representing our process:
+      // Collateral box on left
       ctx.fillStyle = "#3498db";
-      ctx.fillRect(50, canvas.height / 2 - 50, 150, 100);
+      ctx.fillRect(50, canvas.height / 2 - 40, 150, 80);
       ctx.fillStyle = "#fff";
-      ctx.font = "20px Arial";
-      ctx.fillText("Collateral", 60, canvas.height / 2);
+      ctx.font = "18px Arial";
+      ctx.fillText("Collateral", 60, canvas.height / 2 + 5);
 
-      // Animate an arrow from collateral to minted tokens
+      // Animated arrow
       const progress = Math.min(elapsed / duration, 1);
-      const arrowX = 200 + progress * 300;
+      const arrowX = 220 + progress * 300;
       ctx.strokeStyle = "#e74c3c";
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 4;
       ctx.beginPath();
-      ctx.moveTo(200, canvas.height / 2);
+      ctx.moveTo(220, canvas.height / 2);
       ctx.lineTo(arrowX, canvas.height / 2);
       ctx.stroke();
-      // Draw arrow head
+      // Arrow head
       ctx.beginPath();
       ctx.moveTo(arrowX, canvas.height / 2);
       ctx.lineTo(arrowX - 10, canvas.height / 2 - 10);
@@ -250,11 +284,11 @@
       ctx.fillStyle = "#e74c3c";
       ctx.fill();
 
-      // Draw minted PSC box on the right
+      // PSC Minted box on right
       ctx.fillStyle = "#2ecc71";
-      ctx.fillRect(550, canvas.height / 2 - 50, 150, 100);
+      ctx.fillRect(550, canvas.height / 2 - 40, 150, 80);
       ctx.fillStyle = "#fff";
-      ctx.fillText("PSC Minted", 560, canvas.height / 2);
+      ctx.fillText("PSC Minted", 560, canvas.height / 2 + 5);
 
       // Reset animation cycle
       if (elapsed >= duration) {
@@ -262,7 +296,6 @@
       }
       requestAnimationFrame(drawIllustration);
     }
-
     requestAnimationFrame(drawIllustration);
   </script>
 </body>
