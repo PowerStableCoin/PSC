@@ -1,167 +1,269 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAOPowerStableCoin Whitepaper</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0;
-            color: #2C3E50;
-        }
-        h2 {
-            font-size: 2em;
-            color: #2C3E50;
-            border-bottom: 2px solid #2C3E50;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-        }
-        h3 {
-            font-size: 1.5em;
-            color: #34495e;
-            margin-top: 30px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        ul, ol {
-            margin-left: 20px;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 40px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAOPowerStableCoin</title>
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+    
+    /* Navigation */
+    nav {
+      background: #2C3E50;
+      color: #fff;
+      padding: 1em;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    nav .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+    
+    /* Hero Section */
+    header {
+      background: url('https://via.placeholder.com/1100x500') no-repeat center center/cover;
+      height: 500px;
+      position: relative;
+      margin-top: 60px;
+    }
+    
+    header .overlay {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    header .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    header .content h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    
+    header .content p {
+      font-size: 1.2em;
+    }
+    
+    /* Sections */
+    section {
+      padding: 60px 0;
+      background: #fff;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2C3E50;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Dynamic Illustration */
+    #illustration {
+      text-align: center;
+    }
+    
+    #illustration canvas {
+      border: 1px solid #ccc;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2C3E50;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
     <div class="container">
-        <header>
-            <h1>DAOPowerStableCoin</h1>
-            <p><strong>Whitepaper</strong> – Empowering a Decentralized Stablecoin Ecosystem</p>
-            <p>Date: March 2025</p>
-        </header>
-
-        <section id="abstract">
-            <h2>Abstract</h2>
-            <p>
-                DAOPowerStableCoin (PSC) is a collateral-backed, decentralized stablecoin designed with integrated payment rewards, staking, and DAO governance. By locking approved collateral, PSC maintains its stability while incentivizing user engagement through bonus rewards and yield opportunities.
-            </p>
-        </section>
-
-        <section id="introduction">
-            <h2>Introduction</h2>
-            <p>
-                In the rapidly evolving landscape of decentralized finance (DeFi), stablecoins have become essential for enabling frictionless payments and a reliable store of value. However, many stablecoins suffer from centralization or lack of user incentives. DAOPowerStableCoin addresses these issues by offering a robust, transparent, and user-incentivized stablecoin platform that integrates collateral management, bonus rewards for payments, staking, and decentralized governance.
-            </p>
-        </section>
-
-        <section id="problem">
-            <h2>Problem Statement</h2>
-            <p>
-                Traditional stablecoins often face one or more of the following issues:
-            </p>
-            <ul>
-                <li>Centralization risk and lack of transparency.</li>
-                <li>No incentives for holding or transacting the token.</li>
-                <li>Limited yield opportunities for users.</li>
-                <li>Complexity in achieving community governance.</li>
-            </ul>
-        </section>
-
-        <section id="solution">
-            <h2>Our Solution</h2>
-            <p>
-                DAOPowerStableCoin presents an innovative, multi-faceted stablecoin solution that:
-            </p>
-            <ul>
-                <li><strong>Ensures Stability:</strong> Collateral is locked to back every minted PSC token, maintaining full collateralization.</li>
-                <li><strong>Incentivizes Payments:</strong> A built-in bonus mechanism rewards users with cashback when they pay registered merchants.</li>
-                <li><strong>Encourages Staking:</strong> Users can stake PSC to earn additional yield, increasing token utility and reducing circulating supply.</li>
-                <li><strong>Embraces Decentralized Governance:</strong> DAO-controlled parameters allow stakeholders to guide protocol upgrades and key economic variables.</li>
-            </ul>
-        </section>
-
-        <section id="technology">
-            <h2>Technology & Architecture</h2>
-            <h3>Collateral Management</h3>
-            <p>
-                Users mint PSC by locking approved stablecoins as collateral. Unlike burning, collateral is held within the contract and is later returned during redemption.
-            </p>
-            <h3>Price Aggregation</h3>
-            <p>
-                Multiple oracle price feeds are used to calculate a median price. This robust mechanism minimizes the risk of oracle manipulation and ensures fair pricing.
-            </p>
-            <h3>Reentrancy & Input Validation</h3>
-            <p>
-                The contract employs OpenZeppelin’s ReentrancyGuard and SafeERC20 libraries, along with strict input validation, to mitigate reentrancy and front-running risks.
-            </p>
-            <h3>Upgradeable Design</h3>
-            <p>
-                Built using the UUPS upgradeable pattern, the contract can be updated securely via DAO governance while maintaining backward compatibility.
-            </p>
-        </section>
-
-        <section id="tokenomics">
-            <h2>Tokenomics</h2>
-            <p>
-                PSC is minted by locking collateral and redeemed to unlock it, ensuring each token is fully backed. Key aspects include:
-            </p>
-            <ul>
-                <li><strong>Collateralization Ratio:</strong> Set and adjusted by the DAO to maintain stability.</li>
-                <li><strong>Transfer Fees:</strong> A small fee on collateral transfers supports the bonus and staking reward pools.</li>
-                <li><strong>Bonus Rewards:</strong> Users receive cashback rewards when paying merchants with PSC.</li>
-                <li><strong>Staking Rewards:</strong> Additional yield is distributed to stakers, promoting long-term holding.</li>
-            </ul>
-        </section>
-
-        <section id="risk-management">
-            <h2>Risk Management</h2>
-            <ul>
-                <li><strong>Oracle Dependency:</strong> Multiple oracle feeds and median calculations mitigate price manipulation risk.</li>
-                <li><strong>Reentrancy Protection:</strong> All state-changing functions use nonReentrant modifiers to prevent reentrancy attacks.</li>
-                <li><strong>Input Validation:</strong> Thorough input checks ensure that addresses and amounts are valid.</li>
-                <li><strong>Governance Safeguards:</strong> DAO governance and timelocks ensure responsible upgrades and parameter changes.</li>
-            </ul>
-        </section>
-
-        <section id="roadmap">
-            <h2>Roadmap</h2>
-            <ol>
-                <li><strong>Phase 1: Launch & Audits</strong> – Deploy the core PSC contract with collateral management, bonus rewards, and staking. Undergo comprehensive security audits.</li>
-                <li><strong>Phase 2: DAO Integration</strong> – Implement full DAO governance for protocol parameters and upgrades.</li>
-                <li><strong>Phase 3: Ecosystem Expansion</strong> – Establish merchant partnerships and integrate with payment gateways to boost adoption.</li>
-                <li><strong>Phase 4: Advanced Features</strong> – Explore cross-chain compatibility and dynamic yield models to further enhance the ecosystem.</li>
-            </ol>
-        </section>
-
-        <section id="conclusion">
-            <h2>Conclusion</h2>
-            <p>
-                DAOPowerStableCoin is designed to deliver a secure, efficient, and engaging stablecoin experience. By combining collateral backing, payment bonuses, staking rewards, and decentralized governance, PSC aims to offer a comprehensive solution for everyday transactions in the DeFi ecosystem.
-            </p>
-        </section>
-
-        <footer>
-            <p>© DAOPowerStableCoin 2025. All rights reserved.</p>
-        </footer>
+      <div class="logo">
+        <a href="#home"><strong>PSC</strong></a>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#methods">How It Works</a>
+        <a href="#illustration">Illustration</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>DAOPowerStableCoin</h1>
+      <p>Secure. Decentralized. Incentivized.</p>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About DAOPowerStableCoin</h2>
+      <p>
+        DAOPowerStableCoin (PSC) is a decentralized, collateral-backed stablecoin designed to bring stability and innovative user incentives to the DeFi ecosystem. Every PSC token is fully backed by locked collateral, and the ecosystem includes bonus rewards for payments and staking opportunities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Methods Section -->
+  <section id="methods">
+    <div class="container">
+      <h2>How It Works</h2>
+      <h3>Collateral Management</h3>
+      <p>
+        Users mint PSC by locking approved stablecoin collateral. The contract determines the value using multiple oracle price feeds, calculates a median price, and mints PSC accordingly.
+      </p>
+      <h3>Payment & Bonus</h3>
+      <p>
+        Merchants register to accept PSC. When users make payments, they receive bonus tokens (cashback) drawn from a bonus pool, encouraging widespread adoption.
+      </p>
+      <h3>Staking for Rewards</h3>
+      <p>
+        PSC holders can stake their tokens to earn additional yield from a dedicated staking reward pool. This reduces the circulating supply and rewards long-term holders.
+      </p>
+      <h3>Decentralized Governance</h3>
+      <p>
+        Key parameters are governed by a DAO, ensuring transparency and community participation in the protocol's evolution.
+      </p>
+    </div>
+  </section>
+
+  <!-- Dynamic Illustration Section -->
+  <section id="illustration">
+    <div class="container">
+      <h2>Dynamic Illustration of Our Methods</h2>
+      <p>Watch the process of collateral locking, token minting, and redemption in action!</p>
+      <canvas id="illustrationCanvas" width="800" height="400"></canvas>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section id="roadmap">
+    <div class="container">
+      <h2>Roadmap</h2>
+      <ol>
+        <li><strong>Phase 1:</strong> Development, auditing, and beta launch of core features.</li>
+        <li><strong>Phase 2:</strong> DAO integration, community governance, and merchant partnerships.</li>
+        <li><strong>Phase 3:</strong> Ecosystem expansion, cross-chain compatibility, and advanced features.</li>
+        <li><strong>Phase 4:</strong> Continuous improvements, strategic partnerships, and marketing campaigns.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>For inquiries or more information, please email <a href="mailto:contact@psctoken.io">contact@psctoken.io</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© DAOPowerStableCoin 2025. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Dynamic Illustration -->
+  <script>
+    // Simple dynamic illustration on canvas:
+    // This example animates a simple flow: Collateral --> Minting --> PSC Token.
+    const canvas = document.getElementById('illustrationCanvas');
+    const ctx = canvas.getContext('2d');
+    let startTime = null;
+    const duration = 5000; // 5 seconds animation cycle
+
+    function drawIllustration(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw collateral box on the left
+      ctx.fillStyle = "#3498db";
+      ctx.fillRect(50, canvas.height / 2 - 50, 150, 100);
+      ctx.fillStyle = "#fff";
+      ctx.font = "20px Arial";
+      ctx.fillText("Collateral", 60, canvas.height / 2);
+
+      // Animate an arrow from collateral to minted tokens
+      const progress = Math.min(elapsed / duration, 1);
+      const arrowX = 200 + progress * 300;
+      ctx.strokeStyle = "#e74c3c";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(200, canvas.height / 2);
+      ctx.lineTo(arrowX, canvas.height / 2);
+      ctx.stroke();
+      // Draw arrow head
+      ctx.beginPath();
+      ctx.moveTo(arrowX, canvas.height / 2);
+      ctx.lineTo(arrowX - 10, canvas.height / 2 - 10);
+      ctx.lineTo(arrowX - 10, canvas.height / 2 + 10);
+      ctx.closePath();
+      ctx.fillStyle = "#e74c3c";
+      ctx.fill();
+
+      // Draw minted PSC box on the right
+      ctx.fillStyle = "#2ecc71";
+      ctx.fillRect(550, canvas.height / 2 - 50, 150, 100);
+      ctx.fillStyle = "#fff";
+      ctx.fillText("PSC Minted", 560, canvas.height / 2);
+
+      // Reset animation cycle
+      if (elapsed >= duration) {
+        startTime = timestamp;
+      }
+      requestAnimationFrame(drawIllustration);
+    }
+
+    requestAnimationFrame(drawIllustration);
+  </script>
 </body>
 </html>
