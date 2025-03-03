@@ -3,126 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DAOPowerStableCoin - Illustration</title>
+  <title>DAOPowerStableCoin</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f7f9fc;
-      text-align: center;
-      color: #333;
-      margin: 0;
-      padding: 0;
+    /* Reset & Basic Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; background: #f7f9fc; text-align: center; color: #333; }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(44, 62, 80, 0.95);
+      padding: 15px 0;
+      z-index: 1000;
     }
-    
-    h2 {
-      font-size: 2.5em;
-      color: #2C3E50;
-      margin-top: 30px;
-    }
-    
-    #illustrationContainer {
-      position: relative;
+    nav .container {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      margin-top: 20px;
-      height: 500px;
+      padding: 0 20px;
     }
-    
-    canvas {
-      border: 2px solid #ccc;
-      background: white;
+    nav .logo { font-size: 1.8em; color: #fff; font-weight: bold; }
+    nav .menu a { margin-left: 20px; font-size: 1em; color: #ecf0f1; text-decoration: none; }
+
+    /* Hero Section */
+    header {
+      height: 500px;
+      position: relative;
+      background: url('https://via.placeholder.com/1100x500/2c3e50/ffffff?text=Empower+Your+Future') no-repeat center center/cover;
+    }
+    header .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    header .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+    header .content h1 { font-size: 3.5em; margin-bottom: 20px; }
+    header .content p { font-size: 1.5em; margin-bottom: 30px; }
+    header .content .cta-btn {
+      background: #e74c3c;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    header .content .cta-btn:hover {
+      background: #c0392b;
+    }
+
+    /* Sections */
+    section { padding: 60px 0; background: #fff; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    h2 { font-size: 2.5em; color: #2C3E50; margin-bottom: 20px; }
+    p { margin-bottom: 15px; font-size: 1.1em; color: #555; }
+
+    /* Illustration Section */
+    #illustration {
+      text-align: center;
+      margin-top: 40px;
+    }
+    #illustration canvas { border: 2px solid #ecf0f1; background: #fff; }
+
+    /* Footer */
+    footer {
+      background: #2C3E50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      margin-top: 40px;
     }
 
   </style>
 </head>
 <body>
 
-  <h2>Interactive Flow of DAOPowerStableCoin</h2>
-  <p>Visualizing the process: Collateral Deposit → Minting PSC → Staking → Reward Distribution</p>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">DAOPowerStableCoin</div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#methods">How It Works</a>
+        <a href="#illustration">Illustration</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#cta">Join Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <div id="illustrationContainer">
-    <canvas id="illustrationCanvas" width="800" height="400"></canvas>
-  </div>
+  <!-- Hero Section -->
+  <header id="home">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Empower Your Future</h1>
+      <p>Invest in a Decentralized Stablecoin that Rewards You</p>
+      <button class="cta-btn" onclick="scrollToSection('cta')">Get Started</button>
+    </div>
+  </header>
 
+  <!-- How It Works Section -->
+  <section id="methods">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p>Visualizing the Flow: Collateral Deposit → Minting PSC → Staking → Rewards</p>
+    </div>
+  </section>
+
+  <!-- Dynamic Illustration Section -->
+  <section id="illustration">
+    <div class="container">
+      <h2>Our Dynamic Process</h2>
+      <canvas id="illustrationCanvas" width="800" height="400"></canvas>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© DAOPowerStableCoin 2025. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Illustration -->
   <script>
     const canvas = document.getElementById("illustrationCanvas");
     const ctx = canvas.getContext("2d");
-
-    let step = 0;
     let startTime = null;
-    const duration = 4000; // Total animation duration per cycle (4s)
-    
+    const duration = 4000;
+
     function drawIllustration(timestamp) {
       if (!startTime) startTime = timestamp;
       let progress = (timestamp - startTime) / duration;
-      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 1. Draw Collateral Block (Starting Point)
-      ctx.fillStyle = "#3498db"; 
-      ctx.fillRect(50, 150, 150, 80);
-      ctx.fillStyle = "#fff";
-      ctx.font = "16px Arial";
-      ctx.fillText("Collateral", 85, 185);
+      ctx.fillStyle = "#3498db"; ctx.fillRect(50, 150, 150, 80);
+      ctx.fillStyle = "#fff"; ctx.fillText("💰 Collateral", 70, 185);
 
-      // 2. Arrow from Collateral to PSC Minting (Step 1)
       let arrow1X = 220 + Math.min(progress * 250, 250);
-      ctx.strokeStyle = "#e74c3c";
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.moveTo(200, 190);
-      ctx.lineTo(arrow1X, 190);
-      ctx.stroke();
+      ctx.strokeStyle = "#e74c3c"; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(200, 190); ctx.lineTo(arrow1X, 190); ctx.stroke();
 
-      if (progress > 0.25) { // After 25% progress, show Minted PSC
-        // 3. Draw Minted PSC Block
-        ctx.fillStyle = "#2ecc71"; 
-        ctx.fillRect(arrow1X + 20, 150, 150, 80);
-        ctx.fillStyle = "#fff";
-        ctx.fillText("PSC Minted", arrow1X + 45, 185);
+      if (progress > 0.25) {
+        ctx.fillStyle = "#2ecc71"; ctx.fillRect(arrow1X + 20, 150, 150, 80);
+        ctx.fillStyle = "#fff"; ctx.fillText("🪙 PSC Minted", arrow1X + 40, 185);
       }
 
-      // 4. Arrow from PSC to Staking (Step 2)
-      if (progress > 0.5) { // After 50% progress
+      if (progress > 0.5) {
         let arrow2X = 440 + Math.min((progress - 0.5) * 250, 250);
-        ctx.strokeStyle = "#f1c40f";
-        ctx.beginPath();
-        ctx.moveTo(420, 190);
-        ctx.lineTo(arrow2X, 190);
-        ctx.stroke();
+        ctx.strokeStyle = "#f1c40f"; ctx.beginPath(); ctx.moveTo(420, 190); ctx.lineTo(arrow2X, 190); ctx.stroke();
       }
 
-      // 5. Draw Staking Block
-      if (progress > 0.75) { // After 75% progress
-        ctx.fillStyle = "#8e44ad"; 
-        ctx.fillRect(690, 150, 150, 80);
-        ctx.fillStyle = "#fff";
-        ctx.fillText("Staking", 730, 185);
+      if (progress > 0.75) {
+        ctx.fillStyle = "#8e44ad"; ctx.fillRect(690, 150, 150, 80);
+        ctx.fillStyle = "#fff"; ctx.fillText("🔒 Staking", 730, 185);
       }
 
-      // 6. Reward Arrow (From Staking to Rewards)
       if (progress > 0.85) {
-        ctx.strokeStyle = "#27ae60";
-        ctx.beginPath();
-        ctx.moveTo(770, 230);
-        ctx.lineTo(770, 300);
-        ctx.stroke();
-
-        // 7. Reward Block
-        ctx.fillStyle = "#f39c12"; 
-        ctx.fillRect(690, 300, 150, 80);
-        ctx.fillStyle = "#fff";
-        ctx.fillText("Rewards", 730, 340);
+        ctx.strokeStyle = "#27ae60"; ctx.beginPath(); ctx.moveTo(770, 230); ctx.lineTo(770, 300); ctx.stroke();
+        ctx.fillStyle = "#f39c12"; ctx.fillRect(690, 300, 150, 80);
+        ctx.fillStyle = "#fff"; ctx.fillText("🎁 Rewards", 730, 340);
       }
 
-      if (progress >= 1) {
-        startTime = timestamp; // Reset animation cycle
-      }
-
+      if (progress >= 1) { startTime = timestamp; }
       requestAnimationFrame(drawIllustration);
     }
-
     requestAnimationFrame(drawIllustration);
   </script>
 
