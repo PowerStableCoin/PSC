@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DAOPowerStableCoin (PSC) - The Future of Stable Finance</title>
   <style>
-    /* Reset & Basic Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body { font-family: 'Arial', sans-serif; background: #f7f9fc; text-align: center; color: #333; }
-    
+
     /* Navigation */
     nav {
       position: fixed;
@@ -27,13 +26,14 @@
       padding: 0 20px;
     }
     nav .logo { font-size: 1.8em; color: #fff; font-weight: bold; }
-    nav .menu a { margin-left: 20px; font-size: 1em; color: #ecf0f1; text-decoration: none; }
+    nav .menu a { margin-left: 20px; font-size: 1em; color: #ecf0f1; text-decoration: none; transition: 0.3s; }
+    nav .menu a:hover { color: #f1c40f; }
 
     /* Hero Section */
     header {
       height: 500px;
       position: relative;
-      background: url('https://via.placeholder.com/1100x500/2c3e50/ffffff?text=Empower+Your+Future') no-repeat center center/cover;
+      background: url('https://via.placeholder.com/1100x500/2c3e50/ffffff?text=Secure+Your+Wealth+with+PSC') no-repeat center center/cover;
     }
     header .overlay {
       position: absolute;
@@ -52,8 +52,8 @@
       transform: translateY(-50%);
       padding: 0 20px;
     }
-    header .content h1 { font-size: 3.5em; margin-bottom: 20px; }
-    header .content p { font-size: 1.5em; margin-bottom: 30px; }
+    header .content h1 { font-size: 3.5em; margin-bottom: 10px; animation: fadeIn 1.5s; }
+    header .content p { font-size: 1.5em; margin-bottom: 20px; }
     header .content .cta-btn {
       background: #e74c3c;
       color: #fff;
@@ -72,36 +72,46 @@
     section { padding: 60px 0; background: #fff; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
     h2 { font-size: 2.5em; color: #2C3E50; margin-bottom: 20px; }
-    p { margin-bottom: 15px; font-size: 1.1em; color: #555; }
+    p { font-size: 1.1em; color: #555; margin-bottom: 20px; }
 
-    /* Benefits Section */
-    .benefits {
+    /* Roadmap */
+    .roadmap {
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    }
+    .roadmap .event {
+      width: 60%;
+      padding: 20px;
+      background: #ecf0f1;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       margin-top: 30px;
     }
-    .benefit-box {
+    .testimonial {
       width: 30%;
       padding: 20px;
       background: #ecf0f1;
       border-radius: 10px;
-      margin: 10px;
     }
 
-    /* Illustration Section */
-    #illustration {
-      text-align: center;
-      margin-top: 40px;
-    }
-    #illustration canvas { border: 2px solid #ecf0f1; background: #fff; }
-
-    /* Roadmap */
-    .roadmap ol {
+    /* FAQ */
+    .faq-item {
       text-align: left;
       max-width: 800px;
-      margin: auto;
+      margin: 20px auto;
+    }
+    .faq-item h4 {
       font-size: 1.2em;
+      color: #2C3E50;
     }
 
     /* Footer */
@@ -125,9 +135,9 @@
       <div class="menu">
         <a href="#about">About</a>
         <a href="#benefits">Benefits</a>
-        <a href="#illustration">How It Works</a>
         <a href="#roadmap">Roadmap</a>
-        <a href="#cta">Join Us</a>
+        <a href="#faq">FAQ</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -137,59 +147,49 @@
   <header id="home">
     <div class="overlay"></div>
     <div class="content">
-      <h1>The Future of Stable Finance</h1>
-      <p>Invest in a decentralized stablecoin backed by real assets</p>
-      <button class="cta-btn" onclick="scrollToSection('cta')">Get Started</button>
+      <h1>Secure Your Wealth with PSC</h1>
+      <p>A decentralized stablecoin designed for financial freedom</p>
+      <button class="cta-btn" onclick="scrollToSection('cta')">Join the Future</button>
     </div>
   </header>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <h2>What is DAOPowerStableCoin?</h2>
-      <p>DAOPowerStableCoin (PSC) is a decentralized stablecoin that maintains stability through collateral backing and a decentralized governance model. Users can stake, earn rewards, and make payments while ensuring full transparency and security.</p>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section id="benefits">
-    <div class="container">
-      <h2>Why Choose PSC?</h2>
-      <div class="benefits">
-        <div class="benefit-box">
-          <h3>🔒 Secure & Transparent</h3>
-          <p>PSC is fully backed and auditable, ensuring maximum security.</p>
-        </div>
-        <div class="benefit-box">
-          <h3>💰 Earn Passive Income</h3>
-          <p>Stake PSC and earn rewards for holding and participating.</p>
-        </div>
-        <div class="benefit-box">
-          <h3>📈 Growth & Stability</h3>
-          <p>Designed to maintain value with collateralized backing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Illustration Section -->
-  <section id="illustration">
-    <div class="container">
-      <h2>How PSC Works</h2>
-      <canvas id="illustrationCanvas" width="800" height="400"></canvas>
-    </div>
-  </section>
 
   <!-- Roadmap Section -->
   <section id="roadmap">
     <div class="container">
-      <h2>Roadmap</h2>
-      <ol>
-        <li><strong>Q1 2025:</strong> Core Development & Smart Contract Audits</li>
-        <li><strong>Q2 2025:</strong> DAO Governance Launch</li>
-        <li><strong>Q3 2025:</strong> Merchant Adoption & Real-World Use Cases</li>
-        <li><strong>Q4 2025:</strong> Cross-Chain Expansion</li>
-      </ol>
+      <h2>Our Roadmap</h2>
+      <div class="roadmap">
+        <div class="event"><strong>Q1 2025:</strong> Core Development & Smart Contract Audits</div>
+        <div class="event"><strong>Q2 2025:</strong> DAO Governance Launch</div>
+        <div class="event"><strong>Q3 2025:</strong> Merchant Adoption & Real-World Use Cases</div>
+        <div class="event"><strong>Q4 2025:</strong> Cross-Chain Expansion</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>What Our Users Say</h2>
+      <div class="testimonials">
+        <div class="testimonial"><strong>Emily R.:</strong> "PSC gives me a secure way to store my crypto assets!"</div>
+        <div class="testimonial"><strong>John M.:</strong> "The staking rewards are excellent. Passive income made easy!"</div>
+        <div class="testimonial"><strong>Sarah P.:</strong> "Finally, a stablecoin that truly works for me!"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>How does PSC maintain its value?</h4>
+        <p>PSC is backed by a collateralized reserve and governed by a decentralized DAO.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is staking available?</h4>
+        <p>Yes! Users can stake their PSC to earn rewards over time.</p>
+      </div>
     </div>
   </section>
 
@@ -200,10 +200,7 @@
 
   <script>
     function scrollToSection(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
